@@ -4,7 +4,7 @@
   "description": "Rock Paper Scissors Game",
   "main": "index.js",
   "scripts": {
-    "browser": "browser-sync start --server --startPath /src/index.html --files '*.html,*.css,*.js'",
+    "browser": "browser-sync start --server --startPath /index.html --files '*.html,*.css,*.js'",
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "test": "standard && vnu --skip-non-html --Werror *.html",
     "start": "npm-run-all --parallel browser tailwind"
@@ -20,6 +20,6 @@
     "tailwindcss": "^3.2.4"
   },
   "dependencies": {
-    "tw-elements": "^1.0.0-alpha12"
+    "tw-elements": "^1.0.0-alpha13"
   }
 }
