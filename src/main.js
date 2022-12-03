@@ -15,7 +15,7 @@ function play(e) {
   const computerChoice = getComputerChoice();
   const winner = getWinner(playerChoice, computerChoice);
   showWinner(winner, computerChoice);
-  
+
   console.log(e.target.id);
 }
 
@@ -87,8 +87,8 @@ function showWinner(winner, computerChoice) {
   }
   // Show score
   score.innerHTML = `
-    <p>Player: ${scoreboard.player}</p>
-    <p>Computer: ${scoreboard.computer}</p>
+    <p class = "box-border bg-blue-300 py-2 text-center">Player: ${scoreboard.player}</p>
+    <p class = "box-border bg-red-300 py-2 text-center">Computer: ${scoreboard.computer}</p>
     `;
 
  //modal.style.display = 'block';
@@ -99,9 +99,10 @@ function restartGame() {
   scoreboard.player = 0;
   scoreboard.computer = 0;
   score.innerHTML = `
-    <p>Player: 0</p>
-    <p>Computer: 0</p>
+    <p class = "box-border bg-blue-300 py-2 text-center">Player: ${scoreboard.player}</p>
+    <p class = "box-border bg-red-300 py-2 text-center">Computer: ${scoreboard.computer}</p>
   `;
+  result.innerHTML = "";
 }
 
 // Clear modal
