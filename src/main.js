@@ -11,10 +11,12 @@ const scoreboard = {
 // Play game
 function play(e) {
   restart.style.display = 'inline-block';
-  const playerChoice = e.target.id;
+  const playerChoice = e.currentTarget.id;
   const computerChoice = getComputerChoice();
   const winner = getWinner(playerChoice, computerChoice);
   showWinner(winner, computerChoice);
+  
+  console.log(e.target.id);
 }
 
 // Get computers choice
@@ -60,8 +62,8 @@ function showWinner(winner, computerChoice) {
     scoreboard.player++;
     // Show modal result
     result.innerHTML = `
-      <h1 class="text-win">You Win</h1>
-      <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+      <h1>You Win</h1>
+      <i ${computerChoice}></i>
       <p>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() +
         computerChoice.slice(1)}</strong></p>
     `;
@@ -89,7 +91,7 @@ function showWinner(winner, computerChoice) {
     <p>Computer: ${scoreboard.computer}</p>
     `;
 
-  modal.style.display = 'block';
+ //modal.style.display = 'block';
 }
 
 // Restart game
@@ -110,6 +112,7 @@ function clearModal(e) {
 }
 
 // Event listeners
+console.log(choices)
 choices.forEach(choice => choice.addEventListener('click', play));
 window.addEventListener('click', clearModal);
 restart.addEventListener('click', restartGame);
