@@ -528,10 +528,6 @@ video {
   margin-bottom: 0.25rem;
 }
 
-.mr-1 {
-  margin-right: 0.25rem;
-}
-
 .box-border {
   box-sizing: border-box;
 }
@@ -544,10 +540,6 @@ video {
   display: inline-block;
 }
 
-.flex {
-  display: flex;
-}
-
 .grid {
   display: grid;
 }
@@ -556,12 +548,12 @@ video {
   height: 8rem;
 }
 
-.max-w-md {
-  max-width: 28rem;
+.h-10 {
+  height: 2.5rem;
 }
 
-.flex-row {
-  flex-direction: row;
+.max-w-md {
+  max-width: 28rem;
 }
 
 .place-items-center {
@@ -639,15 +631,6 @@ video {
           background-clip: text;
 }
 
-.object-center {
-  -o-object-position: center;
-     object-position: center;
-}
-
-.p-3 {
-  padding: 0.75rem;
-}
-
 .p-1 {
   padding: 0.25rem;
 }
@@ -677,30 +660,8 @@ video {
   padding-bottom: 1.25rem;
 }
 
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .pt-6 {
   padding-top: 1.5rem;
-}
-
-.pr-3 {
-  padding-right: 0.75rem;
-}
-
-.pt-0 {
-  padding-top: 0px;
-}
-
-.pt-1 {
-  padding-top: 0.25rem;
 }
 
 .pt-5 {
@@ -797,11 +758,6 @@ video {
 }
 
 @media (min-width: 1280px) {
-  .xl\:px-52 {
-    padding-left: 13rem;
-    padding-right: 13rem;
-  }
-
   .xl\:px-64 {
     padding-left: 16rem;
     padding-right: 16rem;
