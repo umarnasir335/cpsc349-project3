@@ -548,6 +548,11 @@ video {
   height: 8rem;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
+
 .max-w-md {
   max-width: 28rem;
 }
