@@ -3,10 +3,31 @@ const score = document.getElementById('score');
 const result = document.getElementById('result');
 const restart = document.getElementById('restart');
 const modal = document.querySelector('.modal');
-const scoreboard = {
-  player: 0,
-  computer: 0
-};
+
+let player;
+let computer;
+
+
+
+//Save game state
+
+if(localStorage.getItem("User_Score") == null && localStorage.getItem("Comp_Score") == null){
+  localStorage.clear();
+  player = 0;
+  computer = 0;
+
+  localStorage.setItem("User_Score", player);
+  localStorage.setItem("Comp_Score", computer);
+} else {
+  player = localStorage.getItem("User_Score");
+  computer = localStorage.getItem("Comp_Score");
+
+  score.innerHTML = `
+    <p class = "box-border bg-blue-300 py-2 text-center">Player: ${player}</p>
+    <p class = "box-border bg-red-300 py-2 text-center">Computer: ${computer}</p>
+    `;
+
+}
 
 // Play game
 function play(e) {
@@ -15,6 +36,9 @@ function play(e) {
   const computerChoice = getComputerChoice();
   const winner = getWinner(playerChoice, computerChoice);
   showWinner(winner, computerChoice);
+
+  localStorage.setItem("User_Score", player);
+  localStorage.setItem("Comp_Score", computer);
 
   console.log(e.target.id);
 }
@@ -30,6 +54,8 @@ function getComputerChoice() {
     return 'scissors';
   }
 }
+
+const scoreboard = {player, computer};
 
 // Get game winner
 function getWinner(p, c) {
@@ -59,7 +85,7 @@ function getWinner(p, c) {
 function showWinner(winner, computerChoice) {
   if (winner === 'player') {
     // Inc player score
-    scoreboard.player++;
+    player++;
     // Show modal result
     result.innerHTML = `
       <h1>You Win</h1>
@@ -69,7 +95,7 @@ function showWinner(winner, computerChoice) {
     `;
   } else if (winner === 'computer') {
     // Inc computer score
-    scoreboard.computer++;
+    computer++;
     // Show modal result
     result.innerHTML = `
       <h1 class="text-lose">You Lose</h1>
@@ -87,8 +113,8 @@ function showWinner(winner, computerChoice) {
   }
   // Show score
   score.innerHTML = `
-    <p class = "box-border bg-blue-300 py-2 text-center">Player: ${scoreboard.player}</p>
-    <p class = "box-border bg-red-300 py-2 text-center">Computer: ${scoreboard.computer}</p>
+    <p class = "box-border bg-blue-300 py-2 text-center">Player: ${player}</p>
+    <p class = "box-border bg-red-300 py-2 text-center">Computer: ${computer}</p>
     `;
 
  //modal.style.display = 'block';
@@ -96,13 +122,16 @@ function showWinner(winner, computerChoice) {
 
 // Restart game
 function restartGame() {
-  scoreboard.player = 0;
-  scoreboard.computer = 0;
+  player = 0;
+  computer = 0;
   score.innerHTML = `
-    <p class = "box-border bg-blue-300 py-2 text-center">Player: ${scoreboard.player}</p>
-    <p class = "box-border bg-red-300 py-2 text-center">Computer: ${scoreboard.computer}</p>
+    <p class = "box-border bg-blue-300 py-2 text-center">Player: ${player}</p>
+    <p class = "box-border bg-red-300 py-2 text-center">Computer: ${computer}</p>
   `;
   result.innerHTML = "";
+
+  localStorage.setItem("User_Score", player);
+  localStorage.setItem("Comp_Score", computer);
 }
 
 // Clear modal
